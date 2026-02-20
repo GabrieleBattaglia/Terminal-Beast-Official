@@ -1,0 +1,262 @@
+TERMINAL BEAST - MANUALE OPERATIVO UFFICIALE
+Versione: 0.99.3
+Data: 20 Febbraio 2026
+Autore: Gabriele Battaglia & Stella
+
+================================================================================
+1. INTRODUZIONE
+================================================================================
+Benvenuto in Terminal Beast, la simulazione definitiva di allevamento mostri (Monster Raising Sim).
+In questo universo testuale persistente, vestirai i panni di un Caposcuderia.
+Il tuo obiettivo non è solo combattere, ma creare una dinastia genetica perfetta.
+Il mondo continua a evolversi anche quando non giochi: i mostri crescono, guariscono, invecchiano e muoiono in tempo reale.
+
+================================================================================
+2. IL MOSTRO: ANATOMIA E GENETICA
+================================================================================
+Ogni creatura è un individuo unico definito da parametri fisici e mentali.
+
+[STATISTICHE FISICHE - Allenabili]
+- Attacco: La potenza offensiva. (Max 20.0)
+- Difesa: Riduce il danno subito. (Max 20.0)
+- Schivata: Probabilità di evitare completamente un colpo. (Max 20.0)
+- Parata: Probabilità di bloccare un colpo (danno ridotto). (Max 20.0)
+- Coraggio: Influenza l'iniziativa e la resistenza alla paura. (Max 20.0)
+- HP Max: La salute massima. Allenabile in Palestra o alla SPA. (Max 200.0)
+- Guarigione: Velocità di recupero naturale degli HP. (Max 20.0)
+
+[GENETICA - Immutabile]
+La genetica è il cuore del valore di un mostro. Viene determinata alla nascita.
+- Saggezza (1-10): "La capacità di sopravvivere".
+  Fondamentale per le Missioni Esplorative (evita trappole e smarrimenti).
+  Influenza il moltiplicatore di valore economico.
+- Intelligenza (1-10): "La capacità di imparare e produrre".
+  Determina quanto Hashy guadagna lavorando e la velocità di apprendimento delle abilità.
+  Un mostro intelligente è una miniera d'oro.
+
+[SESSI E SLOT COMBATTIMENTO]
+Il sesso determina quanti combattimenti (Slot) un mostro può sostenere al giorno.
+- Maschio / Femmina: 3 Slot base.
+- Ermafrodito: 4 Slot. (Compatibile con tutti in riproduzione).
+- Asessuato: 5 Slot. (Sterile, non si riproduce).
+- Mutaforma: 6 Slot. (Si adatta a tutti tranne Asessuati).
+- Binario: 7 Slot. (Rarissimo).
+Nota: Dal Livello 50 (Veterano), tutti guadagnano +1 Slot extra.
+
+[FAMIGLIE ELEMENTALI]
+Il sistema di combattimento segue un ciclo a 8 elementi ("L'Ottagono"):
+Acqua > Fuoco > Metallo > Tossico > Terra > Elettricità > Psiche > Aria > Acqua...
+- Vantaggio Elementale: +50% Danno inflitto.
+- Svantaggio Elementale: -30% Danno subito.
+
+================================================================================
+3. GLI ARCHETIPI (INDOLE)
+================================================================================
+L'Archetipo definisce lo stile di combattimento e, soprattutto, l'affinità in allenamento.
+Allenare una statistica "Bonus" costa il 20% in meno. Una "Malus" costa il 20% in più.
+
+| ARCHETIPO     | BONUS (Cresce veloce)       | MALUS (Cresce lento)       | STILE                |
+|---------------|-----------------------------|----------------------------|----------------------|
+| Berserker     | Attacco, Coraggio, HP       | Difesa, Schivata, Parata   | Tutto sull'offesa    |
+| Tank          | Difesa, HP, Parata          | Schivata, Attacco, Coraggio| Incassatore puro     |
+| Ninja         | Schivata, Attacco, Guarigione| Difesa, Parata, HP        | Colpisci e sparisci  |
+| Paladino      | Parata, Difesa, Guarigione  | Attacco, Schivata, Coraggio| Protettore resiliente|
+| Sopravvissuto | Guarigione, HP, Schivata    | Attacco, Coraggio, Parata  | Duro a morire        |
+| Assassino     | Attacco, Schivata, Coraggio | Difesa, HP, Guarigione     | Killer fragile       |
+| Fortezza      | Difesa, Parata, HP          | Schivata, Attacco, Guarigione| Muro immobile      |
+| Equilibrato   | Coraggio, Guarigione, HP    | Attacco, Difesa, Schivata  | Bilanciato           |
+| Caos          | -                           | -                          | Imprevedibile        |
+
+================================================================================
+4. STRUTTURE E COSTI
+================================================================================
+Gestire le risorse è fondamentale. Ecco come vengono calcolati i prezzi.
+
+[PALESTRA (Allenamento)]
+Il costo per aumentare una statistica NON è fisso.
+Formula: Costo Base (15H) + Costo Esponenziale (più alta è la stat, più paghi).
+Fattori di sconto:
+1. Archetipo: Se la stat è favorita dall'indole, paghi il 20% in meno.
+2. Intelligenza: I mostri intelligenti imparano prima (sconto ~1.5% per punto).
+
+[OSPEDALE (Cure)]
+Curare costa in base alla gravità delle ferite e al livello del mostro.
+Formula: (% HP mancanti * Livello * 0.5).
+Fattore di sconto e recupero naturale:
+- Guarigione Alta: Riduce drasticamente il tempo necessario per guarire naturalmente (fino a sole 10 ore per il recupero completo a Guarigione 20).
+- In Battaglia: La Guarigione rigenera HP alla fine di ogni turno (Formula v0.98.6: Stat * 0.4 + 1% HP Max). Un mostro con alta guarigione è difficile da abbattere.
+
+[CENTRO BENESSERE SPA]
+Lusso costoso. Il prezzo sale esponenzialmente con gli HP Max attuali.
+
+================================================================================
+5. ATTIVITÀ E GESTIONE GIORNALIERA
+================================================================================
+Ogni mostro può svolgere un'attività alla volta. Durante l'attività è "Impegnato".
+IMPORTANTE (v0.97.2): Le attività fisiche (Lavoro e Ritiro) consumano HP nel tempo. Se un mostro raggiunge 0 HP durante un'attività, MUORE PER STRESS FATALE.
+
+[MECCANISMO DI LOGORAMENTO]
+- LAVORO: Consumo base 0.3 HP/ora. La Saggezza mitiga questo stress fino al 40%.
+- RITIRO: Consumo base 0.1 HP/ora. Fatica costante per l'allenamento intenso.
+
+[ESEMPI DI CONSUMO HP - LAVORO]
+| Durata Reale | Saggezza 1 (Pessima) | Saggezza 10 (Ottima) | Effetto/Rischio        |
+|--------------|----------------------|----------------------|------------------------|
+| 12 ore       | -3.5 HP              | -2.2 HP              | Fatica leggera         |
+| 24 ore (1gg) | -6.9 HP              | -4.3 HP              | Pericoloso per cuccioli|
+| 72 ore (3gg) | -20.7 HP             | -13.0 HP             | Richiede mostro adulto |
+| 144 ore(6gg) | -41.5 HP             | -25.9 HP             | Solo per Tank/Veterani |
+| 288 ore(12g) | -82.9 HP             | -51.8 HP             | RISCHIO MORTE ESTREMO  |
+
+Consiglio Strategico: Prima di inviare un mostro a lavorare per molti giorni, controlla i suoi HP attuali e la sua Saggezza. Un mostro con poca salute o Saggezza bassa non sopravviverà a turni lunghi.
+
+1. MISSIONE ESPLORATIVA (Rischio Alto / Loot Raro)
+   Scopo: Trovare Oggetti Magici (Buff permanenti/temporanei) e Risorse.
+   Richiede: Alta Saggezza per non perdersi o ferirsi nelle trappole.
+   Nota: Questa attività non consuma HP per fatica, ma espone a trappole ambientali.
+
+2. LAVORO (Rischio Nullo / Guadagno Sicuro)
+   Scopo: Guadagnare Hashy.
+   Richiede: Alta Intelligenza. Un genio guadagna molto più di un bruto.
+   Attenzione: Monitora attentamente gli HP!
+
+3. RITIRO SPORTIVO (Costo Basso / Crescita Lenta)
+   Scopo: Allenare una statistica spendendo tempo (ore reali) invece di denaro.
+   Ideale per mostri giovani o scuderie povere.
+   Fatica: Consuma costantemente 0.1 HP l'ora (2.4 HP al giorno).
+
+================================================================================
+6. ECONOMIA E FINANZE
+================================================================================
+Hashy è la valuta che muove il mondo. Puoi guadagnarla combattendo, lavorando,
+scommettendo o vendendo mostri.
+
+[SISTEMA ARENA (v0.98.0)]
+- Tassa d'Iscrizione: 5 * (Livello^1.6). Più alta il livello, più costa.
+- Montepremi: Il vincitore prende il 90% del piatto totale (Tua Tassa + Tassa Avversario).
+- Bonus Spettacolo: I match di alto livello pagano di più (+0.5% per livello medio).
+- Bonus Coraggio: Battere un avversario più forte aumenta il premio (+2% per ogni livello di differenza).
+
+[SCOMMESSE (Promoter & Arena)]
+Puoi scommettere su chi vincerà. Le quote sono calcolate in base alla forza dei mostri.
+Il banco trattiene un margine del 10%. Attenzione: se perdi, perdi tutto.
+
+[ADOZIONE (ACQUISTO DAL GIOCO)]
+Il prezzo dipende dal Potenziale (Intelligenza * Saggezza). Un genio costa caro.
+
+[RILASCIO (VENDITA AL GIOCO)]
+Dopo 6 Mesi Mostro (9 giorni reali) di permanenza, puoi rilasciare un mostro incassando Hashy.
+La nuova formula (v0.97.0) è progettata per essere equa e scalabile:
+Guadagno = Costo Iniziale + (Crescita PI * Fattore Genetico * Moltiplicatore Livello).
+
+- Fattore Genetico: Prodotto di Intelligenza e Saggezza. Più il mostro è "di razza", più ogni punto di crescita vale oro.
+- Moltiplicatore Livello: Il valore della crescita aumenta ogni 10 livelli (da 15x a 500x) per compensare i costi esponenziali della Palestra nell'End-Game.
+
+Strategia: I mostri "medi" sono ottime fonti di reddito fino al livello 30. Oltre questa soglia, solo i mostri con genetica superiore (Geni) garantiscono profitti elevati.
+
+[TERMINAL TRADE (SCAMBIO TRA GIOCATORI)]
+Procedura sicura in 4 fasi per vendere mostri ad amici:
+
+1. VENDITORE: Seleziona "Metti in Vendita (Export)". Sceglie il mostro e fissa il prezzo.
+   Il mostro viene spostato nel LIMBO (non usabile). Viene creato un file .tbm.
+   Il venditore invia il file .tbm al compratore (via mail, discord, ecc.).
+
+2. COMPRATORE: Seleziona "Acquista Mostro (Import)". Carica il file .tbm.
+   Se ha abbastanza Hashy, paga e riceve il mostro immediatamente.
+   Il sistema genera un CODICE DI SBLOCCO univoco.
+   Il compratore comunica questo codice al venditore.
+
+3. VENDITORE: Seleziona "Incassa Codice Sblocco" e inserisce il codice ricevuto.
+   Il sistema verifica la transazione, consegna gli Hashy al venditore e rimuove il mostro dal Limbo.
+
+4. FINE: Transazione conclusa. Se l'affare salta, il venditore può usare "Annulla Vendita" per recuperare il mostro dal Limbo.
+
+================================================================================
+7. STATISTICHE MONDO E TORNEI
+================================================================================
+[TORNEI UFFICIALI] (Ctrl+T)
+Competizioni a eliminazione o girone. Partecipa per fama, medaglie e premi in denaro.
+
+[STATISTICHE GLOBALI] (Ctrl+S)
+Il mondo è vivo. Questo pannello ti mostra:
+- Popolazione Mondiale: Quanti mostri esistono nella simulazione globale.
+- Economia: Quanti Hashy sono stati stampati dalla zecca centrale.
+- Ecologia: Nascite, morti e combattimenti avvenuti mentre non c'eri.
+
+================================================================================
+8. COMANDI E SCORCIATOIE
+================================================================================
+[TASTI FUNZIONE - AIUTO]
+F1: Manuale Operativo
+F2: Changelog e Novità
+F3: Crediti e Riconoscimenti
+
+[TASTI RAPIDI (Nessun modificatore richiesto)]
+1-9, 0 : Mostra scheda dettagliata del mostro n. 1-10 nella tua scuderia.
+A : Arena (Combattimento Singolo)
+P : Palestra (Allenamento Rapido)
+O : Ospedale (Cure)
+S : Statistiche Globali
+V : Osservatorio (Cerca Selvatici)
+E : Gestione Attività (Nuova Esplorazione/Lavoro)
+M : Organizza Incontro (Promoter)
+D : Diario del Mostro selezionato (o ultimo usato)
+C : Cattura l'ultimo selvatico selezionato nell'Osservatorio
+Q : Esci dal gioco
+
+[TASTI AVANZATI (Richiedono Ctrl)]
+Ctrl + T : Tornei Disponibili
+Ctrl + G : Palestra (Alternativo)
+Ctrl + H : Ospedale (Alternativo)
+Ctrl + L : Classifica Mondiale (Leaderboard) / Lista Mostri
+Ctrl + R : Rinomina Scuderia
+Ctrl + U : Rinomina Utente
+Ctrl + P : Preferenze
+Ctrl + Del : Rilascia Mostro selezionato
+
+[MENU TORNEI & TRADE (Richiedono Ctrl + Shift)]
+Ctrl + Shift + T : Editor Tornei
+Ctrl + Shift + F : Editor Formule Tornei
+Ctrl + Shift + S : Esporta Mostro (Vendi)
+Ctrl + Shift + A : Importa Mostro (Compra)
+Ctrl + Shift + B : Bancarotta (Reset Totale Gioco)
+Shift + D        : Diario della Scuderia (Registro Eventi)
+
+================================================================================
+9. ASCENSIONE (FINALE DI GIOCO)
+================================================================================
+L'obiettivo ultimo di ogni Caposcuderia è l'Ascensione.
+Per raggiungerla, devi portare 10 Mostri al Livello 100 (o superiore).
+
+Quando questo accade:
+1. La tua vittoria viene celebrata e registrata nell'OLIMPO DELLE GLORIE (un file storico eterno).
+2. I tuoi campioni vengono liberati nel mondo come LEGGENDE VIVENTI.
+3. La tua scuderia rinasce (Nuova Partita+): riparti da zero con un nuovo nome e un nuovo starter.
+4. Il mondo NON si resetta. Le tue Leggende Viventi vagano ancora là fuori. Potresti incontrarle (o combatterci contro) nella tua prossima vita.
+
+Ogni ciclo di Ascensione rende il mondo di Terminal Beast più ricco, difficile e leggendario.
+
+================================================================================
+10. SFIDA MORTALE (I MAGNIFICI 7)
+================================================================================
+Quando la diplomazia fallisce, inizia la guerra totale.
+Se una scuderia rivale è simile alla tua potenza (PI +/- 20%), puoi sfidarla a morte.
+Questa modalità ("Magnifici 7") è la sfida definitiva per il dominio del mondo.
+
+[REGOLE DI INGAGGIO]
+1. Draft Strategico (7 contro 7):
+   - Si scelgono i mostri uno alla volta, alternandosi.
+   - Quando il rivale schiera un mostro, tu puoi vedere chi è e rispondere con il "Counter" perfetto (es. Acqua contro Fuoco).
+   - Quando tocca a te schierare per primo, dovrai scoprire le tue carte e l'IA cercherà di contrastarti.
+
+2. Il Gauntlet (King of the Hill):
+   - I combattimenti sono sequenziali e senza pausa.
+   - Chi vince un round RESTA IN CAMPO con gli HP residui per affrontare il prossimo avversario.
+   - Non ci sono cure tra i round. È una guerra di logoramento.
+
+[POSTA IN GIOCO (Winner Takes All)]
+- VITTORIA: La scuderia rivale viene SCIOLTA per sempre. Ottieni tutto il loro Hashy e catturi i mostri sopravvissuti come prigionieri di guerra.
+- SCONFITTA: I tuoi 7 campioni vengono massacrati. Perdi metà del tuo Hashy e la tua reputazione crolla.
+
+================================================================================
+Grazie per aver scelto Terminal Beast. Buona caccia!
