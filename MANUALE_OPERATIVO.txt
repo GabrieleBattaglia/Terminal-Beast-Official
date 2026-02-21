@@ -1,5 +1,5 @@
 TERMINAL BEAST - MANUALE OPERATIVO UFFICIALE
-Versione: 0.99.3
+Versione: 0.99.4
 Data: 20 Febbraio 2026
 Autore: Gabriele Battaglia & Stella
 
@@ -139,7 +139,8 @@ scommettendo o vendendo mostri.
 
 [SCOMMESSE (Promoter & Arena)]
 Puoi scommettere su chi vincerà. Le quote sono calcolate in base alla forza dei mostri.
-Il banco trattiene un margine del 10%. Attenzione: se perdi, perdi tutto.
+Il banco trattiene un margine del 10%. 
+REGOLA PAREGGIO (v0.99.4): Se l'incontro finisce in parità, la scommessa non è considerata persa. Riceverai un rimborso parziale del 75% della tua puntata originale (il banco trattiene il 25%).
 
 [ADOZIONE (ACQUISTO DAL GIOCO)]
 Il prezzo dipende dal Potenziale (Intelligenza * Saggezza). Un genio costa caro.
