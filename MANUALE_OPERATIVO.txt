@@ -1,6 +1,6 @@
 TERMINAL BEAST - MANUALE OPERATIVO UFFICIALE
-Versione: 0.99.4
-Data: 20 Febbraio 2026
+Versione: 1.0.0
+Data: 25 Febbraio 2026
 Autore: Gabriele Battaglia & Stella
 
 ================================================================================
@@ -33,6 +33,10 @@ La genetica è il cuore del valore di un mostro. Viene determinata alla nascita.
 - Intelligenza (1-10): "La capacità di imparare e produrre".
   Determina quanto Hashy guadagna lavorando e la velocità di apprendimento delle abilità.
   Un mostro intelligente è una miniera d'oro.
+
+[BILANCIAMENTO NASCITE (v0.99.7)]
+I nuovi nati di Livello 1 hanno un potenziale ("Power Cap") calibrato per garantire che inizino davvero dal basso.
+Non nasceranno più mostri "già evoluti" al Livello 2 per errore. La crescita va guadagnata!
 
 [SESSI E SLOT COMBATTIMENTO]
 Il sesso determina quanti combattimenti (Slot) un mostro può sostenere al giorno.
@@ -79,12 +83,13 @@ Fattori di sconto:
 1. Archetipo: Se la stat è favorita dall'indole, paghi il 20% in meno.
 2. Intelligenza: I mostri intelligenti imparano prima (sconto ~1.5% per punto).
 
-[OSPEDALE (Cure)]
+[OSPEDALE (Cure) - v0.99.7]
 Curare costa in base alla gravità delle ferite e al livello del mostro.
 Formula: (% HP mancanti * Livello * 0.5).
-Fattore di sconto e recupero naturale:
-- Guarigione Alta: Riduce drasticamente il tempo necessario per guarire naturalmente (fino a sole 10 ore per il recupero completo a Guarigione 20).
-- In Battaglia: La Guarigione rigenera HP alla fine di ogni turno (Formula v0.98.6: Stat * 0.4 + 1% HP Max). Un mostro con alta guarigione è difficile da abbattere.
+Nuova Interfaccia (2.0):
+- Menu Dettagliato: Mostra esattamente quanti HP (punti e percentuale) guadagnerai con ogni opzione di cura.
+- Filtro Intelligente: Vengono mostrati solo i pazienti che hanno realmente bisogno di cure (tolleranza matematica per evitare falsi positivi al 100%).
+- Chiusura Smart: L'ospedale si chiude automaticamente quando l'ultimo paziente è stato dimesso.
 
 [CENTRO BENESSERE SPA]
 Lusso costoso. Il prezzo sale esponenzialmente con gli HP Max attuali.
@@ -138,9 +143,15 @@ scommettendo o vendendo mostri.
 - Bonus Coraggio: Battere un avversario più forte aumenta il premio (+2% per ogni livello di differenza).
 
 [SCOMMESSE (Promoter & Arena)]
-Puoi scommettere su chi vincerà. Le quote sono calcolate in base alla forza dei mostri.
-Il banco trattiene un margine del 10%. 
-REGOLA PAREGGIO (v0.99.4): Se l'incontro finisce in parità, la scommessa non è considerata persa. Riceverai un rimborso parziale del 75% della tua puntata originale (il banco trattiene il 25%).
+Puoi scommettere su chi vincerà. Le quote sono calcolate in base alla forza dei mostri, ai vantaggi elementali e al sesso.
+Il banco trattiene un margine del 10%.
+REGOLA DIVARIO SALUTE (v1.0.0): Il bookmaker chiuderà le scommesse (nessuna puntata consentita) se il mostro più ferito ha meno dell'80% degli HP dell'altro, per prevenire speculazioni su sfide impari.
+REGOLA PAREGGIO (v0.99.4+): Se l'incontro finisce in parità, la scommessa non è considerata persa. Riceverai un rimborso parziale del 75% della tua puntata originale (il banco trattiene il 25%).
+Valido anche per le Scuderie Rivali (IA) dalla v0.99.6.
+
+[PROMOTER (Organizzazione Incontri)]
+Puoi organizzare incontri tra mostri selvatici per guadagnare una commissione fissa (5H) e scommettere sul risultato.
+LIMITE GIORNALIERO (v1.0.0): Puoi organizzare un massimo di 10 incontri al giorno (reale). Il contatore si resetta a mezzanotte.
 
 [ADOZIONE (ACQUISTO DAL GIOCO)]
 Il prezzo dipende dal Potenziale (Intelligenza * Saggezza). Un genio costa caro.
