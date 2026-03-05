@@ -1,0 +1,240 @@
+TERMINAL BEAST - DIARIO DI SVILUPPO (TODO)
+
+STATO ATTUALE (1.0.9)
+Data: 1 Marzo 2026
+Autore: Gabriele e Stella
+
+Questa versione include un'importante revisione dell'interfaccia pre e post-battaglia e fissa alcuni bug legati al pruning dei dati e all'aggiornamento temporale.
+
+Update v1.0.9 (UI CLEANUP & BUGFIXES):
+- Report Pre-Battaglia (Promoter/Arena):
+    - Rimosso l'ingombro del Rank massimo (ora mostra solo la posizione es. 103°).
+    - La riga HP ora mostra la differenza sia in HP attuali che in HP Max per un confronto immediato.
+    - Rimosse statistiche fuorvianti o irrilevanti per lo scontro (Hp_max e Saggezza separate, Danni trasformati in interi, Esplorazioni rimosse).
+- Report Post-Battaglia:
+    - Rimosse le informazioni ridondanti fuori dal riepilogo finale.
+    - La percentuale di incremento/perdita sul portafoglio è stata rimpiazzata dal ROI (Ritorno sull'Investimento) netto della scommessa, per mostrare chiaramente quanto ha reso la puntata in rapporto al capitale investito e alla quota.
+- Fix Pruning e Chiusura:
+    - Risolto un bug critico che causava l'esecuzione ripetuta all'infinito del pruning dei diari (venivano ripuliti in memoria ma *dopo* il salvataggio su disco).
+    - Risolto un bug per cui i contatori "Attività compiute" e ore passate nelle attività non venivano aggiornati se i mostri tornavano mentre il gioco era chiuso.
+- Scheda Mostro:
+    - Riorganizzato il blocco statistiche raggruppando quelle immutabili (Saggezza/Intelligenza), promuovendo la Guarigione a Stat principale con aggettivo, e rimuovendo gli HP_Max doppi.
+
+STATO PRECEDENTE (1.0.5)
+Data: 1 Marzo 2026
+Autore: Gabriele e Stella
+
+Questa versione introduce una feature di quality-of-life fondamentale per l'economia avanzata: la formattazione "umana" per i grandi numeri di Hashy.
+
+Update v1.0.5 (ECONOMY QOL):
+- Formattazione Hashy (Lettura): I grandi quantitativi di Hashy vengono ora mostrati compattati (es. 10.5K, 1.5M, 2B). Sotto i 10.000 Hashy viene mostrato il numero intero. Implementato in tutte le schede (giocatore, rivali e tabellone).
+- Inserimento Hashy (Scrittura): Aggiunto il supporto per l'inserimento "umano" degli importi di Hashy. Per scommesse e prezzi di vendita è ora possibile inserire indifferentemente il valore intero (5000) o la versione compatta (5k, 1.5m).
+
+STATO PRECEDENTE (1.0.4)
+Data: 26 Febbraio 2026
+Autore: Gabriele e Stella
+
+Questa versione include fix minori riguardanti l'accuratezza dei decimali nelle schede e l'usura durante le attività.
+
+Update v1.0.4 (UI & MECHANICS POLISH):
+- Precisione Livello: Il livello dei mostri è ora visualizzato sistematicamente con due cifre decimali (es. Lv. 1.25) nei menu e nelle finestre principali del gioco, ad eccezione dei report sintetici e del tabellone tornei.
+- Usura Attività: Risolto un bug di arrotondamento che azzerava l'usura in HP derivante dalle sessioni di lavoro e allenamento. Ora l'HP cala con precisione in base ai tick.
+- Tracciamento Attività: Le sessioni di lavoro e allenamento (SPA, Ritiro) contribuiscono ora correttamente al tempo totale speso in attività mostrato nella scheda del mostro.
+
+STATO PRECEDENTE (1.0.2)
+Data: 26 Febbraio 2026
+Autore: Gabriele e Stella
+
+Questa versione arricchisce il report di fine sessione includendo statistiche dettagliate e corrette sugli eventi.
+
+Update v1.0.2 (SESSION REPORTING ENHANCEMENT):
+- Report di Fine Sessione Completo: Il report che appare chiudendo l'applicazione ora include conteggi separati per i "Lavori Completati", "Sfide Mortali", "Tornei Giocati", "Adozioni IA" e differenzia le "Morti Scuderia" da quelle "Selvatici".
+- Fix Eventi Chiusura Finestra: Il report di fine sessione viene ora mostrato a prescindere dal metodo di chiusura della finestra (tasto Esc, Alt+F4 o bottone X).
+
+STATO PRECEDENTE (1.0.1)
+Data: 26 Febbraio 2026
+Autore: Gabriele e Stella
+
+Questa versione risolve due bug minori nei report e nelle statistiche prima del rilascio ufficiale.
+
+Update v1.0.1 (HOTFIX):
+- Saldo Attività: Ora il report di chiusura delle attività mostra correttamente il totale degli Hashy incassati o ritrovati durante missioni e lavoro.
+- Statistica Kill: Corretto un bug per cui il contatore "Kill" nella scheda del mostro non veniva incrementato in caso di uccisione accidentale (5% di probabilità) negli incontri standard in Arena o Promoter.
+
+STATO PRECEDENTE (1.0.0)
+Data: 25 Febbraio 2026
+Autore: Gabriele e Stella
+
+Questa versione introduce bilanciamenti critici all'economia del gioco prima del rilascio ufficiale.
+
+Update v1.0.0 (ECONOMY & BALANCE):
+- Regole Scommesse (Bookmaker):
+    - Le quote del bookmaker ora calcolano in anticipo le rivalità elementali (Famiglia) e i bonus di sesso, rendendo le quote molto più accurate e realistiche.
+    - Scommesse Chiuse per Divario Salute: Il bookmaker si rifiuterà di quotare un incontro se il mostro più ferito ha meno dell'80% degli HP dell'altro. Gli incontri possono svolgersi regolarmente, ma il gioco d'azzardo su sfide palesemente sbilanciate è bloccato.
+- Limite Promoter:
+    - Ridotto il numero massimo di incontri organizzabili per il Promoter da 20 a 10 al giorno (reale).
+
+STATO PRECEDENTE (0.99.11)
+Data: 22 Febbraio 2026
+Autore: Gabriele e Stella
+
+Questa versione risolve un bug critico che causava la morte accidentale dei mostri durante i tornei.
+
+Update v0.99.11 (TOURNAMENT SAFETY NET):
+- Protezione "Stress da Torneo":
+    - I mostri iscritti a un torneo vengono ora messi in uno stato speciale ("In Torneo") che li protegge dalla morte per stress o vecchiaia causata dall'ecologia in background.
+    - Risolto il bug per cui i mostri che perdevano un match (0 HP) morivano immediatamente se l'ecologia scattava prima della fine del torneo.
+    - Impedita l'iscrizione di mostri già impegnati in altre attività (Lavoro, Missione) per evitare conflitti di logoramento.
+- Gestione Chiusura:
+    - Se si tenta di chiudere l'applicazione con un torneo in corso, viene chiesta conferma e lo stato dei mostri viene ripristinato automaticamente per evitare che rimangano "bloccati" nel limbo.
+
+STATO PRECEDENTE (0.99.10)
+Data: 22 Febbraio 2026
+Autore: Gabriele e Stella
+
+Questa patch risolve un errore NameError introdotto con la ristrutturazione del filesystem.
+
+Update v0.99.10 (HOTFIX - IMPORT):
+- Risolto NameError 'os' in TournamentEngine: aggiunte importazioni mancanti per la gestione dei nuovi percorsi file.
+
+STATO PRECEDENTE (0.99.9)
+Data: 22 Febbraio 2026
+Autore: Gabriele e Stella
+
+Questa versione ristruttura definitivamente la gestione dei file per separare i dati di sistema (aggiornabili) dai dati utente (persistenti).
+
+Update v0.99.9 (FILE SYSTEM RESTRUCTURING):
+- Separazione Dati:
+    - Cartella `data/`: Contiene risorse di sistema (read-only, interna all'app).
+    - Cartella `tournaments/`: Contiene dati utente (formule e tornei, read-write, esterna all'app).
+- Migrazione Formule:
+    - Il file `formulas.json` è stato spostato da `data/` a `tournaments/`.
+    - L'app ora gestisce le formule come dati utente: se il file non esiste, viene creato vuoto alla prima modifica.
+- Clean Install:
+    - Rimossi i preset di esempio. L'utente inizia con un ambiente pulito e crea le proprie competizioni.
+
+STATO PRECEDENTE (0.99.8)
+Data: 22 Febbraio 2026
+Autore: Gabriele e Stella
+
+Questa versione risolve bug critici sui percorsi file (PyInstaller) e implementa una "Partenza Pulita" rimuovendo dati di esempio.
+
+Update v0.99.8 (HOTFIX & CLEAN START):
+- Fix Percorsi Formule: Ora l'editor e il gestore dei tornei usano percorsi assoluti basati sulla posizione dell'eseguibile (fix "File non trovato" in PyInstaller).
+- Clean Start (Rimozione Dati Esempio):
+    - Eliminata la creazione automatica di formule ("Round Robin") e tornei ("Novizi", "Coppa Elementale") all'avvio.
+    - Se si prova a creare un torneo senza formule, il sistema ora blocca l'operazione e guida l'utente all'Editor Formule invece di caricare default errati.
+
+STATO PRECEDENTE (0.99.7)
+Data: 22 Febbraio 2026
+Autore: Gabriele e Stella
+
+Questa versione introduce limiti giornalieri per il Promoter, migliora l'interfaccia dell'Ospedale e bilancia le nascite.
+
+Update v0.99.7 (BALANCE & LIMITS):
+- Ribilanciamento Nascite (Liv 1):
+    - Ridotto il "Power Cap" alla nascita per i mostri di Livello 1 (8.6 -> 8.1).
+    - Risolto il problema per cui alcuni nuovi nati apparivano erroneamente come Livello 2.
+- Ospedale 2.0:
+    - Nuova Interfaccia di Cura: Mostra chiaramente HP guadagnati, HP finali e percentuali.
+    - Filtro Pazienti Migliorato: Tolleranza matematica (0.05) per evitare di mostrare mostri sani al 100%.
+    - Jingle Audio: Aggiunto suono di conferma alla cura.
+    - Uscita Smart: L'ospedale si chiude automaticamente se non ci sono più pazienti.
+- Promoter (Limiti):
+    - Introdotto limite giornaliero di 20 incontri organizzabili per il Promoter.
+    - Contatore visibile nel titolo della finestra ("Incontro 8/20").
+    - Reset automatico ogni mezzanotte reale.
+
+STATO PRECEDENTE (0.99.6)
+Data: 22 Febbraio 2026
+Autore: Gabriele e Stella
+
+Questa patch migliora la leggibilità dei report e garantisce equità nelle scommesse.
+
+Update v0.99.6 (CLEAR REPORTS & FAIR BETS):
+- Report Attività Dettagliati:
+    - Aggiunta intestazione chiara per ogni mostro ("Nome torna da Attività").
+    - I guadagni e le perdite sono ora raggruppati sotto il nome del responsabile.
+- Equità Scommesse IA:
+    - Esteso il rimborso del 75% in caso di pareggio anche alle Scuderie Rivali (prima era solo per il giocatore).
+
+STATO PRECEDENTE (0.99.5)
+Data: 22 Febbraio 2026
+Autore: Gabriele e Stella
+
+Questa versione introduce una misura di protezione per i nuovi nati e ristruttura il sistema di logging.
+
+Update v0.99.5 (PUPPY PROTECTION ACT & CLEANUP):
+- Protezione Cuccioli:
+    - Le Scuderie IA ora ignorano i mostri selvatici di Livello 1 con meno di 24 ore di vita (reali).
+    - Questo garantisce al giocatore una finestra di opportunità per catturare i nuovi nati.
+- UI & Report:
+    - Spostata voce "Classifica" nel menu "Scuderie IA" (più coerente).
+    - Refactoring Heartbeat: Anche i report delle attività in background ora usano il nuovo sistema strutturato, correggendo i bug di report vuoti o incompleti.
+
+STATO PRECEDENTE (0.99.4)
+Data: 20 Febbraio 2026
+Autore: Gabriele e Stella
+
+Questa versione pulisce i report delle attività e rende le scommesse più eque.
+
+Update v0.99.4 (REPORTS & BETS):
+- Refactoring Totale Report Attività:
+    - Dismesso il vecchio parser a regex (fragile e impreciso).
+    - Implementato sistema a dati strutturati (activity_data) per Missione, Lavoro, Ritiro e SPA.
+    - I report ora mostrano totali precisi per Fatica, Guadagni Stat e Variazioni Slot.
+    - Aggiunto indicatore di progresso % parziale per il Ritiro.
+- Logica Scommesse (Eguaglianza):
+    - Introdotto Rimborso del 75% della puntata in caso di Pareggio (Arena e Promoter).
+    - Impedisce la perdita totale per risultati non selezionabili.
+- UI & Polishing:
+    - Fix: Formattazione PI a 1 decimale nella lista partecipanti Torneo.
+    - Naming System: Espansione alfabeto (Y, J, K, W, X) per nomi più vari.
+
+STATO PRECEDENTE (0.99.3)
+Data: 20 Febbraio 2026
+Autore: Gabriele e Stella
+
+Questa patch ribilancia il sistema di crescita e fissa i limiti massimi per garantire che il Livello 100 sia un traguardo matematicamente perfetto.
+
+Update v0.99.3 (LEVEL REBALANCE & STAT CAPS):
+- Ribilanciamento Livello:
+    - Modificata la formula di calcolo del livello (Divisore 2.1 -> 1.855).
+    - Ora un mostro con statistiche massimizzate (20/200) raggiunge esattamente il Livello 100.
+    - Effetto retroattivo: Tutti i mostri vedranno un aumento del proprio livello stimato (+12% circa).
+- Tetti Statistici (Hard Caps):
+    - HP Max: Fissato limite massimo a 200.0.
+    - Guarigione: Fissato limite massimo a 20.0 (come le altre skill fisiche).
+    - Altre Fisiche: Confermate a 20.0.
+    - Mentali (Int/Sag): Confermate a 10.0.
+- Migrazione Automatica:
+    - I mostri esistenti con valori fuori scala verranno ridimensionati automaticamente ai nuovi limiti massimi.
+
+STATO PRECEDENTE (0.99.2)
+Data: 20 Febbraio 2026
+Autore: Gabriele e Stella
+
+Questa versione introduce la guerra totale tra scuderie e migliora l'usabilità dell'Osservatorio.
+
+Update v0.99.2 (DEADLY CHALLENGE & OBSERVATORY SORT):
+Data: 19 Febbraio 2026
+Autore: Gabriele e Stella
+
+Questa patch risolve un crash critico all'avvio causato da un errore di importazione del nuovo modulo di Ascensione.
+
+Update v0.99.1 (HOTFIX - CRASH):
+- Risolto NameError 'AscensionManager is not defined': Aggiunta importazione mancante nel controller principale.
+
+STATO PRECEDENTE (0.99.0)
+Data: 19 Febbraio 2026
+Autore: Gabriele e Stella
+
+Questa versione introduce il Finale del Gioco e la modalità Nuova Partita+ (NG+), trasformando Terminal Beast in un'esperienza ciclica infinita.
+
+Update v0.99.0 (THE ASCENSION):
+- Finale di Gioco (Ascensione):
+    - Raggiungendo 10 Mostri al Livello 100+, si sblocca l'Ascensione.
+    - Generazione del report "Olimpo delle Glorie" che immortala i campioni e la storia della scuderia.
+    - I mostri vincitori vengono rilasciati nel mondo come "Leggende Viventi" (diventano selvatici ma mantengono stats e storia).
+    - La scuderia viene resettata (Hashy, Medaglie, Nome) per iniziare una Nuova Partita+.
+    - Il mondo NON viene resettato: i rivali e i selvatici (inclusi i tuoi ex-campioni) rimangono, rendendo ogni run successiva più ricca e storica.

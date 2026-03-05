@@ -1,6 +1,6 @@
 TERMINAL BEAST - MANUALE OPERATIVO UFFICIALE
-Versione: 1.0.0
-Data: 25 Febbraio 2026
+Versione: 1.0.9
+Data: 1 Marzo 2026
 Autore: Gabriele Battaglia & Stella
 
 ================================================================================
@@ -249,7 +249,31 @@ Quando questo accade:
 Ogni ciclo di Ascensione rende il mondo di Terminal Beast più ricco, difficile e leggendario.
 
 ================================================================================
-10. SFIDA MORTALE (I MAGNIFICI 7)
+10. IMPOSTAZIONI E MANUTENZIONE
+================================================================================
+Terminal Beast offre diverse opzioni per personalizzare l'esperienza di gioco.
+Tutte queste opzioni si trovano nel menu "Impostazioni".
+
+[PREFERENZE AUDIO/VIDEO] (Ctrl+P)
+Da qui puoi modificare l'aspetto dell'interfaccia:
+- Dimensione del Testo: Per facilitare la lettura.
+- Colori: Personalizza il colore del testo e dello sfondo (inserendo i valori RGB).
+- Volume: Regola il volume globale degli effetti sonori del gioco (da 0 a 100).
+- Le impostazioni vengono salvate nel file di salvataggio e applicate automaticamente ai successivi riavvii.
+
+[PULIZIA DIARI] (Pruning)
+Con il tempo, le voci nei diari (dei mostri e delle scuderie) crescono a dismisura, appesantendo il file di salvataggio e rallentando il caricamento. 
+Questa funzione ti permette di impostare una cancellazione automatica dei vecchi eventi.
+- Puoi impostare per quanti "giorni reali" vuoi conservare la cronologia. 
+- Ad esempio, impostando 7 giorni, tutti gli eventi registrati piÃ¹ di una settimana fa verranno eliminati definitivamente alla chiusura del gioco.
+- Questa operazione Ã¨ irreversibile ma fortemente consigliata (es: 30 giorni) per mantenere le prestazioni ottimali.
+- Se l'impostazione Ã¨ a 0, i log non verranno mai cancellati.
+
+[RINOMINA UTENTE] (Ctrl+U)
+Permette di cambiare il tuo nickname (il nome dell'allenatore). Questa operazione non costa nulla e ha solo effetto estetico o nei dialoghi con l'IA.
+
+================================================================================
+11. SFIDA MORTALE (I MAGNIFICI 7)
 ================================================================================
 Quando la diplomazia fallisce, inizia la guerra totale.
 Se una scuderia rivale è simile alla tua potenza (PI +/- 20%), puoi sfidarla a morte.
